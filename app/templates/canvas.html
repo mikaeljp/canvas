@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>Canvas Tutorial 1</title>
+	<script type="text/javascript">
+		function draw(){
+			var canvas = document.getElementById('tutorial');
+			if (canvas.getContext) {
+				var context = canvas.getContext('2d');
+
+				var img = new Image();
+				img.addEventListener("load", function() {
+					
+				}, false);
+				img.src = 'img/1.png'
+
+				context.fillStyle = "rgb(200,0,0)";
+
+				context.beginPath();
+				context.moveTo(25,25);
+				context.lineTo(105,25);
+				context.lineTo(25,105);
+				context.closePath();
+				context.stroke();
+				context.fill();
+
+				context.beginPath();
+				context.moveTo(125,125);
+				context.lineTo(125,45);
+				context.lineTo(45,125);
+				context.closePath();
+				context.stroke();
+
+				var cat = new Image();
+	 		  cat.src = "../img/cat.png";
+	  		cat.onload = function() {
+	  		  context.drawImage(cat, 0, 150);
+	  		};
+
+			}
+		}
+	</script>
+	<style type="text/css">
+	canvas { border: 1px solid black; }
+	</style>
+</head>
+<body onload="draw();">
+	<canvas id="tutorial" width="150" height="300">
+		Alt text
+	</canvas>
+	<img src="img/cat.png" />
+</body>
+</html>
