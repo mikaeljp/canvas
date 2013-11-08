@@ -156,7 +156,7 @@ CanvasState.prototype.draw = function() {
 			var card = cards[i];
 			if (card.x > this.width || card.y > this.height || 
 				  card.x + card.w < 0 || card.y + card.j < 0) continue;
-			shapes[i].draw(ctx);
+			cards[i].draw(ctx);
 		}
 
 		//draw selection
