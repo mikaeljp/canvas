@@ -185,7 +185,6 @@ CanvasState.prototype.getMouse = function(e) {
 	offsetY += this.stylePaddingTop + this.styleBorderTop + this.htmlTop;
 
 	mx = e.pageX - offsetX;
-	<img src='static/img/6.png' />
 	my = e.pageY - offsetY;
 
 	return {x: mx, y: my};
