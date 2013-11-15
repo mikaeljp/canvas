@@ -11,10 +11,11 @@ function Box(parent,x,y,color) {
   shape.attr({fill:color});
   shape.node.onclick = function() {
     var thisShape = shape;
+    var thisColor = color;
     return function() {
-      alert(color);
-      //thisColor = thisColor=='orange'?'blue':'orange';
-      //thisShape.animate({fill: thisColor}, 1000, "linear");
+      thisColor = thisColor=='orange'?'blue':'orange';
+      thisShape.animate({fill: thisColor}, 1000, "linear");
+    }
   }();
 }
 
