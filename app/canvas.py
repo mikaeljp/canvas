@@ -9,6 +9,9 @@ app = Flask(__name__)
 def home():
     return render_template('drag.html')
 
+@app.route('/raphael')
+def raph():
+    return render_template('raph.html')
 
 if __name__ == '__main__':
     app.run('0.0.0.0')
