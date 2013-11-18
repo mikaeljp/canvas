@@ -25,6 +25,7 @@ function init() {
   var b = new Box(paper,600,200,'orange');
   var c = new Box(paper,500,200,'blue');
   var d = new Box(paper,600,100,'blue');
+
   a.addNeighbor(c);
   a.addNeighbor(d);
   b.addNeighbor(c);
@@ -95,7 +96,7 @@ function Box(parent,x,y,color) {
   this.shape.attr({fill:color});
   this.shape.node.onclick = this.toggle.bind(this);
   this.shape.drag(move, start, up);
-  this.shape.onDragOver(this.over.bind(this));
+  // this.shape.onDragOver(this.over.bind(this));
 };
 
 Box.prototype.addNeighbor = function(box) {
@@ -105,13 +106,20 @@ Box.prototype.addNeighbor = function(box) {
   }
 };
 
-Box.prototype.over = function(target){
-  target.animate({fill:this.color},500,">");
+// Box.prototype.over = function(target){
+//   target.animate({fill:this.color},500,">");
+// };
+
+
+Box.prototype.addNeighbor = function(box) {
+  if (this.neighbors.indexOf(box) == -1) {
+    this.neighbors.push(box);
+  }
 };
 
 Box.prototype.toggle = function(evt) {
   this.color = (this.color=='orange'?'blue':'orange');
-  this.shape.animate({fill:this.color},500,"linear");
+  this.shape.animate({fill:this.color},1000,"linear");
   if (evt) {
     for (var i = 0; i < this.neighbors.length; i += 1) {
       this.neighbors[i].toggle()
@@ -122,4 +130,3 @@ Box.prototype.toggle = function(evt) {
 Box.prototype.fade = function(evnt) {
   this.shape.attr({fill:"black"});
 }
-
